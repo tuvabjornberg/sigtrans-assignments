@@ -43,22 +43,22 @@ fig, axs = plt.subplots(2, 2)
 fig.suptitle("Plot of the sinusoid signals x1 and x2 before and after convolution")
 
 axs[0, 0].plot(t, x1, label="x1")
-axs[0, 0].set_title('x1')
+axs[0, 0].set_title('input x1')
 axs[0, 0].set_xlim([0, 0.02])
 axs[0, 0].set_ylim([-1, 1])
 
-axs[0, 1].plot(t, y1, 'tab:orange', label="x1 convoluted")
-axs[0, 1].set_title('x1 convoluted')
+axs[0, 1].plot(t, y1, 'tab:orange', label="y1")
+axs[0, 1].set_title('output y1')
 axs[0, 1].set_xlim([0, 0.02])
 axs[0, 1].set_ylim([-1, 1])
 
 axs[1, 0].plot(t, x2, 'tab:green', label="x2")
-axs[1, 0].set_title('x2')
+axs[1, 0].set_title('input x2')
 axs[1, 0].set_xlim([0, 0.02])
 axs[1, 0].set_ylim([-1, 1])
 
-axs[1, 1].plot(t, y2, 'tab:red', label="x2 concoluted")
-axs[1, 1].set_title('x2 convoluted')
+axs[1, 1].plot(t, y2, 'tab:red', label="y2")
+axs[1, 1].set_title('output y2')
 axs[1, 1].set_xlim([0, 0.02])
 axs[1, 1].set_ylim([-1, 1])
 

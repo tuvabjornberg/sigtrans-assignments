@@ -17,9 +17,9 @@ y = dt * signal.convolve(d, h, method="direct")
 y = y[0 : d.shape[0]]
 
 
-plt.title("Time-invariant (LTI) system with impulse response")
+plt.title("Impulse response and its convolution with the unit response function")
 plt.plot(t, h, label="h(t)")
-plt.plot(t, y, label="Output y", linestyle="--")
+plt.plot(t, y, label="h(t) * δ(t)", linestyle="--")
 plt.xlabel("time (s)")
 plt.ylabel("Amplitude")
 plt.legend()
