@@ -22,16 +22,22 @@ t = np.arange(interval[0], interval[1], dt)
 x1 = A * np.sin((1 / T1) * 2 * np.pi * t)  # f = 1/T, w= 2pif
 x2 = A * np.sin(f2 * 2 * np.pi * t)
 
-fig, ax = plt.subplots()
+fig, (ax, ax2) = plt.subplots(1, 2)
 
-ax.title.set_text("Plot of the sinusoid signals x1 and x2")
+fig.suptitle("Plot of the sinusoid signals x1 and x2")
 ax.plot(t, x1, label="x1")
-ax.plot(t, x2, label="x2")
 ax.set_xlabel("t (s)")
 ax.set_ylabel("Amplitude")
-ax.legend()
 ax.set_xlim([0, 0.01])
 ax.set_ylim([-1, 1])
+
+ax2.plot(t, x2, "tab:orange", label="x2")
+ax2.set_xlabel("t (s)")
+ax2.set_ylabel("Amplitude")
+ax2.set_xlim([0, 0.01])
+ax2.set_ylim([-1, 1])
+
+fig.legend()
 plt.show()
 
 sd.play(x2, 1 / dt, blocking=True)
