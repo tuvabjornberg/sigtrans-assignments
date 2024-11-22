@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 T0 = 5e-3
 alpha = 1000 * np.pi
 
