@@ -30,19 +30,20 @@ fs_resampled = 8e3
 Ts = 1 / fs
 K = t[1] * fs
 
-tk = np.arange(t[0], t[1], Ts)
 
 x = sd.rec(int(K), fs, channels=1, blocking=True)
 sd.play(x, fs, blocking=True)  # Original recording, 40kHz
 print("Original, 40kHz done")
+
 
 xs = x[::5]  # pick every 5th sample in the recording, --> 8kHz
 sd.play(xs, fs_resampled, blocking=True)
 print("Resampled, 8kHz done")
 
 
+tk = np.arange(t[0], t[1], Ts)
 tf, xf, __ = signal.lsim(H, x, tk)
-xf = xf[::5]  # pick every 5th sample in the recording, --> 8kHz
 
+xf = xf[::5]  # pick every 5th sample in the recording, --> 8kHz
 sd.play(xf, fs_resampled, blocking=True)
 print("Resampled + filter, 8kHz done")
