@@ -15,7 +15,7 @@ x_2k = np.cos(2 * np.pi * f2 / f_s * k)
 
 
 fig, axs = plt.subplots(1, 2)
-fig.suptitle("Plot of sampled Discrete-time cosine signals")
+fig.suptitle("Plot of sampled cosine signals")
 
 axs[0].stem(k, x_1k, "tab:orange")
 axs[0].set_title(r"The signal $x_{1}[k]$")
