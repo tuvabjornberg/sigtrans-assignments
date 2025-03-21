@@ -38,14 +38,14 @@ fig.suptitle(
 axs[0].stem(fl3, np.abs(X_3fl), "tab:blue", basefmt="tab:blue", label="Approx. $X_{3}(f)$, L=K")
 axs[0].set_title("Magnitude Spectrum of $X_{3}(f)$, with 20 samples")
 axs[0].set(xlabel=r"$f$ (Hz)", ylabel=r"$|X_{3}(f)|$")
-axs[0].set_xlim(0, 128)
+axs[0].set_xlim(0, 64)
 axs[0].grid()
 axs[0].legend()
 
 # Task 3
-axs[1].stem(fl, np.abs(X_3fl_padded), "tab:red", basefmt="tab:red", label="Approx. $X_{3}(f)$, zero padded")
+axs[1].stem(fl, np.abs(X_3fl_padded), "tab:red", basefmt="tab:red", label="Approx. $X_{3}(f)$, zero padded, L > K")
 axs[1].set(xlabel=r"$f$ (Hz)", ylabel=r"$|X_{3}(f)|$")
-axs[1].set_xlim(0, 128)
+axs[1].set_xlim(0, 64)
 axs[1].grid()
 axs[1].legend()
 
@@ -53,12 +53,12 @@ axs[1].legend()
 
 # b)
 # 20 samples
-fig, axs = plt.subplots(1, 1)
+fig, axs = plt.subplots(2, 1)
 fig.suptitle(
     "Plot represents the approximated magnitude spectrum of $X_{3}(f)$, with zero padding but with different sampling rates"
 )
 
-axs.stem(fl, np.abs(X_3fl_padded), "tab:blue", basefmt="tab:blue", label="Approx. $X_{3}(f)$, zero padded, 20 samples")
+axs[0].stem(fl, np.abs(X_3fl_padded), "tab:blue", basefmt="tab:blue", label="Approx. $X_{3}(f)$, zero padded, 20 samples")
 
 # 64 samples
 L3 = K3 = 64
@@ -71,10 +71,10 @@ X_3fl_padded = fft(x_3k, n=L) / K3
 fl = np.arange(0, L) / L * f_s
 
 
-axs.stem(fl, np.abs(X_3fl_padded), "tab:red", basefmt="tab:red", label="Approx. $X_{3}(f)$, zero padded, 64 samples")
-axs.set(xlabel=r"$f$ (Hz)", ylabel=r"$|X_{3}(f)|$")
-axs.set_xlim(0, 128)
-axs.grid()
-axs.legend()
+axs[0].stem(fl, np.abs(X_3fl_padded), "tab:red", basefmt="tab:red", label="Approx. $X_{3}(f)$, zero padded, 128 samples")
+axs[0].set(xlabel=r"$f$ (Hz)", ylabel=r"$|X_{3}(f)|$")
+axs[0].set_xlim(0, 64)
+axs[0].grid()
+axs[0].legend()
 
 plt.show()
